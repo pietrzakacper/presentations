@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A: Blog feed</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1>Some awesome blog</h1>
+    <div id="entries-container"></div>
+
+    <% blogEntries.forEach(function(blogEntry) { %>
+        <div class="blog-entry"><%= blogEntry %></div>
+    <% }); %>
+
+    <%if (loggedIn === false) { %>
+        <h1>Admin panel: Login</h1>
+
+        <form action="/api/login" method="POST">
+            <label for="username">Username: </label>
+            <input id="username" type="text" name="username"/>
+
+            <label for="password"> Password: </label>
+            <input id="password" type="text" name="password"/>
+
+            <input type="submit" value="Login"></form>
+        </form>
+    <% } else { %>
+        <h2>Admin panel: Blog entry creator</h2>
+        <form action="/api/addBlogEntry" method="POST">
+            <textarea id="entry-input" type="text" name="blogEntry" cols="30" rows="2"></textarea>
+            <input type="submit" />
+        </form>
+    <% } %>
+</body>
+
+</html>

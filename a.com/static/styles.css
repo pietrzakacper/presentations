@@ -1,0 +1,13 @@
+html {
+    background: #6aa84fff;
+}
+
+.blog-entry {
+    background: #66666666;
+    padding: 10px;
+    margin: 5px;
+}
+
+textarea {
+    resize: none;
+}

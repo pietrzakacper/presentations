@@ -16,7 +16,7 @@ const blogEntries = []
 
 app.post('/api/login', (req, res) => {
     if(req.body.username === 'admin' && req.body.password === ADMIN_PASSWORD) {
-        res.cookie('my-session-token', MY_SECRET_SESSION_TOKEN)
+        res.cookie('my-session-token', MY_SECRET_SESSION_TOKEN, { sameSite: 'strict' })
         return res.redirect(303, '/blog')
     }
 

@@ -27,12 +27,17 @@
             <label for="password"> Password: </label>
             <input id="password" type="text" name="password"/>
 
+            <input type="hidden" name="csrfToken" value="<%= CSRF_TOKEN %>"/>
+
             <input type="submit" value="Login"></form>
         </form>
     <% } else { %>
         <h2>Admin panel: Blog entry creator</h2>
         <form action="/api/addBlogEntry" method="POST">
             <textarea id="entry-input" type="text" name="blogEntry" cols="30" rows="2"></textarea>
+
+            <input type="hidden" name="csrfToken" value="<%= CSRF_TOKEN %>"/>
+
             <input type="submit" />
         </form>
     <% } %>
